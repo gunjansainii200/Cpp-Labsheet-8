@@ -1,0 +1,44 @@
+
+// Q6. Write a C++ function to search an element using Binary Search.
+
+#include <iostream>
+using namespace std;
+
+int binarySearch(int arr[], int n, int key)
+{
+    int low = 0, high = n - 1;
+
+    while (low <= high)
+    {
+        int mid = (low + high) / 2;
+
+        if (arr[mid] == key)
+            return mid;
+
+        else if (arr[mid] < key)
+            low = mid + 1;
+
+        else
+            high = mid - 1;
+    }
+
+    return -1;
+}
+
+int main()
+{
+    int arr[5] = {10, 20, 30, 40, 50};
+    int key = 30;
+
+    int result = binarySearch(arr, 5, key);
+
+    if (result != -1)
+        cout << "Element found at position: " << result + 1;
+    else
+        cout << "Element not found";
+
+    return 0;
+}
+
+// Output:
+// Element found at position: 3
